@@ -2,9 +2,9 @@
 Production version of the project is available [here](https://brilliant-tarsier-8857e9.netlify.app).
 
 ### Description of the project
+Responsive web app, which allows to order food via adding to the shopping card, send order data to back-end and fetch the history of orders by email.
 
-
-## Available Scripts
+## Needed Scripts
 Using the app in the development mode:
 1) Download repo, extract files.
 2) Install all dependencies:
