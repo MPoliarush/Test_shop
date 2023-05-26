@@ -28,7 +28,7 @@ useEffect(() => {
   
 async function getInfo () {
         try{
-            const response = await axios("https://food-38pa.onrender.com/getrest")
+            const response = await axios("http://localhost:3000/getrest")
            
             
             if(orderState.length==0){

@@ -26,7 +26,7 @@ async function getData(){
     }
     console.log(logged)
     try{
-        const response = await axios.post('https://food-38pa.onrender.com/getUserHistory', logged, config )
+        const response = await axios.post('http://localhost:3000/getUserHistory', logged, config )
         console.log(response.data)
         setFetchedHistory(response.data)
     } catch(e){
