@@ -1,0 +1,13 @@
+# dependencies
+/back/node_modules
+/front/node_modules
+
+
+*.env
+*.env.example
+*.env.local
+*.env.staging
+
+/back/.env
+/front/.env
+
