@@ -14,10 +14,10 @@ function Order(){
         adress:''
     })
     const [inputsValid,setInputsValod]=useState({
-        name:null,
-        email:null,
-        phone:null,
-        adress:null,
+        name:'',
+        email:'',
+        phone:'',
+        adress:'',
     })
     const [mostTotalPrice, setMostTotalPrice] = useState(0)
     const [orderSent,setOrderSent]=useState(false)
@@ -84,6 +84,9 @@ function Order(){
             setInputs({...inputs,
                 name:e.target.value
             })
+            setInputsValod({...inputsValid,
+                name:''
+            })
 
         }
 
@@ -91,12 +94,18 @@ function Order(){
             setInputs({...inputs,
                 email:e.target.value
             })
+            setInputsValod({...inputsValid,
+                email:''
+            })
 
         }
 
         if(e.currentTarget.getAttribute('name')=='phone'){
             setInputs({...inputs,
                 phone:e.target.value
+            })
+            setInputsValod({...inputsValid,
+                phone:''
             })
 
         }
@@ -107,57 +116,63 @@ function Order(){
             })
 
         }
+        setInputsValod({...inputsValid,
+            adress:''
+        })
     }
+
+
 
     async function confirmHandler(e){
         console.log(inputs)
+        console.log(inputsValid)
 
         if(inputs.name==''){
             console.log('prevented')
             setInputsValod({...inputsValid,
-                name:false
+                name:"Enter valid name"
             })
             return
         }else {
             setInputsValod({...inputsValid,
-                name:true
+                name:''
             })
         }
 
         if(!inputs.email.trim().includes('@')){
             console.log('prevented 2')
             setInputsValod({...inputsValid,
-                email:false
+                email:"Enter valid email"
             })
             return
         }else {
             setInputsValod({...inputsValid,
-                email:true
+                email:''
             })
         }
 
        
-        if(isNaN(inputs.phone)){
+        if(isNaN(inputs.phone) || inputs.phone.length==0){
             console.log('prevented 3')
             setInputsValod({...inputsValid,
-                phone:false
+                phone:"Enter valid phone"
             })
             return
         }else {
             setInputsValod({...inputsValid,
-                phone:true
+                phone:''
             })
         }
 
         if(inputs.adress==''){
             console.log('prevented4')
             setInputsValod({...inputsValid,
-                adress:false
+                adress:"Enter valid address"
             })
             return
         } else {
             setInputsValod({...inputsValid,
-                adress:true
+                adress:''
             })
         }
 
@@ -221,19 +236,19 @@ function deleteCard(e){
                         <div className="all-forms">
                             <div className="info-block">
                                 <label>Name:</label>
-                                <input type='text' name='name' value={inputs.name} onChange={inputHandler}></input>
+                                <input  type='text' name='name' value={inputs.name} onChange={inputHandler} placeholder={inputsValid.name}></input>
                             </div>
                             <div className="info-block">
                                 <label>Email:</label>
-                                <input type='text' name='email' value={inputs.email} onChange={inputHandler}></input>
+                                <input type='text' name='email' value={inputs.email} onChange={inputHandler} placeholder={inputsValid.email}></input>
                             </div>
                             <div className="info-block">
                                 <label>Phone:</label>
-                                <input name='phone' value={inputs.phone} onChange={inputHandler}></input>
+                                <input  name='phone' value={inputs.phone} onChange={inputHandler} placeholder={inputsValid.phone}></input>
                             </div>
                             <div className="info-block">
                                 <label>Address:</label>
-                                <input type='text' name='adress' value={inputs.adress} onChange={inputHandler}></input>
+                                <input  type='text' name='adress' value={inputs.adress} onChange={inputHandler} placeholder={inputsValid.adress}></input>
                             </div>
 
                             <Map></Map>
