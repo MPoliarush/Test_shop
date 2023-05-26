@@ -13,6 +13,12 @@ function Order(){
         phone:'',
         adress:''
     })
+    const [inputsValid,setInputsValod]=useState({
+        name:null,
+        email:null,
+        phone:null,
+        adress:null,
+    })
     const [mostTotalPrice, setMostTotalPrice] = useState(0)
     const [orderSent,setOrderSent]=useState(false)
     const orderState = useSelector(state=>state.basket.food)
@@ -108,23 +114,51 @@ function Order(){
 
         if(inputs.name==''){
             console.log('prevented')
+            setInputsValod({...inputsValid,
+                name:false
+            })
             return
+        }else {
+            setInputsValod({...inputsValid,
+                name:true
+            })
         }
 
         if(!inputs.email.trim().includes('@')){
             console.log('prevented 2')
+            setInputsValod({...inputsValid,
+                email:false
+            })
             return
+        }else {
+            setInputsValod({...inputsValid,
+                email:true
+            })
         }
 
        
         if(isNaN(inputs.phone)){
             console.log('prevented 3')
+            setInputsValod({...inputsValid,
+                phone:false
+            })
             return
+        }else {
+            setInputsValod({...inputsValid,
+                phone:true
+            })
         }
 
         if(inputs.adress==''){
             console.log('prevented4')
+            setInputsValod({...inputsValid,
+                adress:false
+            })
             return
+        } else {
+            setInputsValod({...inputsValid,
+                adress:true
+            })
         }
 
         if(orderState.length==0){

@@ -26,7 +26,7 @@ async function getData(){
     }
     console.log(logged)
     try{
-        const response = await axios.post('http://localhost:3000/getUserHistory', logged, config )
+        const response = await axios.post('http://localhost:5000/getUserHistory', logged, config )
         console.log(response.data)
         setFetchedHistory(response.data)
     } catch(e){
