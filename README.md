@@ -34,7 +34,7 @@ Thre are 2 JSON storing objects:
         img:srting,
         description:string,
         restaurantName:string,
-        quantity;int,
+        quantity:int,
         totalPrice:int
         }
     ],
