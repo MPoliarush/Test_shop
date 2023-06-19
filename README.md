@@ -1,5 +1,5 @@
 # Food Delivery React App
-Production version of the project is available [here](https://cozy-treacle-b198f8.netlify.app/).
+Production version of the project is available [here](https://splendorous-stroopwafel-686ff8.netlify.app/).
 
 ### Description of the project
 Responsive web app, which allows to order food via adding to the shopping card, send order data to back-end and fetch the history of orders by email.
